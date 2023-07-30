@@ -10,7 +10,7 @@ class Login{
         req.settings.pageTitle = 'ទំព័រ​ចុះ​ឈ្មោះ'
         req.settings.message = ''
         req.settings.route = '/admin/login'
-        await userDb.createRootUser(req)
+        //await userDb.createRootUser(req)
         res.render('base', {data:req.settings})
     }
 
