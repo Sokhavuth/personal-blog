@@ -1,2 +1,15 @@
 <!--views/frontend/index.ejs-->
 
+<link href="/styles/frontend/index.css" rel="stylesheet">
+
+<section class="Index region">
+    <header>
+        <span class="date"><%= new Date().toDateString() %></span>
+        <a href="/" class="title"><%= data.siteTitle %></a>
+        <form action="/search" method="post">
+            
+            <input type="text" name="q" placeholder="Search..." required />
+            <input type="submit" value="​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ស្វែង​រក" />
+        </form>
+    </header>
+</section>

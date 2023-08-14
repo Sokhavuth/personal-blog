@@ -1,2 +1,39 @@
 /* public/styles/frontend/index.css */
 
+.Index{
+    margin-top: 50px;
+    padding: 10px;
+    background-color: white;
+}
+
+.Index header{
+    background-color: brown;
+    padding: 30px 20px;
+    color: white;
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    align-items: center;
+}
+
+.Index header .title{
+    color: white;
+    font: 40px/1.5 StardosStencil, Limonf3;
+    text-align: center;
+}
+
+.Index header form{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.Index header form input{
+    font: var(--body-font);
+    padding: 1px 5px;
+}
+
+@media only screen and (max-width: 600px){
+    .Index header{
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+}
