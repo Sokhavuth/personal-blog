@@ -39,11 +39,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: var(--link);
+    color: var(--item-listing-color);
 }
 
 .Search ul li .title a{
     font: 16px/1.5 Oswald, Bayon;
+    color: var(--item-listing-color);
 }
 
 .Search ul li .edit{
