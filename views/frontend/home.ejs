@@ -1,0 +1,57 @@
+<!--views/frontend/home.ejs-->
+
+<link href="/styles/frontend/home.css" rel="stylesheet">
+
+<section class="Home">
+    <div class="feature-post">
+        <% if(data.items){ %>
+            <% for(let v=0; v<4; v++){ %>
+                <a href="/post/<%= data.items[v].id %>">
+                    <img src="<%= data.items[v].thumb %>" />
+                    <% if(data.items[v].videos){ %>
+                        <% if((data.items[v].videos !== "") && (data.items[v].videos !== "[]")){ %>
+                            <img class="play-icon" src="/images/play.png"/>
+                        <% } %>
+                    <% } %>
+                    <span class="title"><%= data.items[v].title %></span>
+                </a>
+            <% } %>
+        <% } %>
+    </div>
+
+    <div class="front-ad">
+        <img src="/images/donate-ad.jpg" />
+        <img src="/images/donate-ad.jpg" />
+    </div>
+
+    <main>
+        <div class="content">
+            <% if(data.items.length > 4){ %>
+                <% for(let v=4; v<data.items.length; v++){ %>
+                <div class="post">
+                    <a class="thumb" href="/post/<%= data.items[v].id %>">
+                        <img src="<%= data.items[v].thumb %>" />
+                        <% if(data.items[v].videos){ %>
+                            <% if((data.items[v].videos !== "") && (data.items[v].videos !== "[]")){ %>
+                                <img class="play-icon" src="/images/play.png"/>
+                            <% } %>
+                        <% } %>
+                        
+                    </a>
+
+                    <div class="text">
+                        <a href="/post/<%= data.items[v].id %>" class="title">
+                            <%= data.items[v].title %>
+                        </a>
+                        <div class="date">
+                            <%= (new Date(data.items[v].date)).toLocaleDateString("it-IT") %>
+                        </div>
+                        <div class="except"><%- data.items[v].content %></div>
+                    </div>
+                </div>
+                <% } %>
+            <% } %>
+        </div>
+        <div class="sidebar">ផ្សាយ​ពាណិជ្ជកម្ម</div>
+    </main>
+</section>

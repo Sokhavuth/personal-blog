@@ -7,9 +7,60 @@
         <span class="date"><%= new Date().toDateString() %></span>
         <a href="/" class="title"><%= data.siteTitle %></a>
         <form action="/search" method="post">
-            
             <input type="text" name="q" placeholder="Search..." required />
             <input type="submit" value="​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ស្វែង​រក" />
         </form>
     </header>
+
+    <nav class="nav">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/styles/frontend/menu.css" />
+        <%
+        let home = ''
+        let news = ''
+        let movie = ''
+        let contact = ''
+        let about = ''
+
+        if(data.route === '/'){
+            home = 'active'
+        }else if(data.type === "News"){
+            news = 'active'
+        }else if(data.type === "Movie"){
+            movie = "active"
+        }else if(data.route === '/page/64c7cb6549c688c59996c77e'){
+            contact = 'active'
+        }else if(data.route === '/page/64c7cba47fb4b21bba8baf9e'){
+            about = 'active'
+        }
+        %>
+        <div class="wrapper region">
+            <div class="topnav" id="myTopnav">
+                <a href="/" class="home <%= home %>">ទំព័រ​ដើម</a>
+                <a href="/category/កំណត់ហេតុ" class="home <%= news %>">កំណត់ហេតុ</a>
+                <a href="/category/ភាពយន្ត" class="movie <%= movie %>">ភាពយន្ត</a>
+                <a href="/page/64c7cb6549c688c59996c77e" class="contact <%= contact %>">ទំនាក់ទំនង</a>
+                <a href="/page/64c7cba47fb4b21bba8baf9e" class="about <%= about %>">អំពី​ខ្ញុំ</a>
+                <a href="/admin/login">ចូលក្នុង</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+    <div class="main">
+        <%- include("./home.ejs") %>
+    </div>
+
 </section>

@@ -1,0 +1,110 @@
+/* public/styles/frontend/home.css */
+
+.Home .feature-post{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 5px;
+    padding: 5px 0;
+}
+
+.Home .feature-post a, .Home main .content .thumb{
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+
+.Home .feature-post img, .Home main .content .thumb img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.Home .feature-post .play-icon, .Home main .content .thumb .play-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    min-height: auto;
+    transform: translate(-50%,-50%);
+}
+
+.Home .feature-post .title{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    background: -webkit-linear-gradient(bottom, black,transparent);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1px 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Home .front-ad{
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-gap: 5px;
+}
+
+.Home .front-ad img{
+    width: 100%;
+}
+
+.Home main{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+
+.Home main .content .post{
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-gap: 10px;
+    background-color: rgb(241, 241, 241);
+    margin-bottom: 20px;
+}
+
+.Home main .content .thumb img{
+    width: 100%;
+}
+
+.Home main .content .text .title{
+    font: 16px/1.5 Oswald, Koulen;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Home main .content .text .except{
+    padding-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font: bold 14px/1.5 Courgette, HandWriting;
+}
+
+.Home main .sidebar{
+    background-color: rgb(241, 241, 241);
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px){
+    .Home .feature-post{
+        grid-template-columns: 100%;
+    }
+
+    .Home .front-ad{
+        grid-template-columns: 100%;
+    }
+}
