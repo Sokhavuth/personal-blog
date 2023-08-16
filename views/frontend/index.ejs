@@ -24,9 +24,9 @@
 
         if(data.route === '/'){
             home = 'active'
-        }else if(data.type === "News"){
+        }else if(data.type === "កំណត់ហេតុ"){
             news = 'active'
-        }else if(data.type === "Movie"){
+        }else if(data.type === "ភាពយន្ត"){
             movie = "active"
         }else if(data.route === '/page/64c7cb6549c688c59996c77e'){
             contact = 'active'
@@ -64,6 +64,10 @@
             <%- include("./home.ejs") %>
         <% }else if(data.route.includes('/post')){ %>
             <%- include("./post.ejs") %>
+        <% }else if(data.route.includes('/category')){ %>
+            <%- include("./category.ejs") %>
+        <% }else if(data.route.includes('/page')){ %>
+            <%- include("./page.ejs") %>
         <% } %>
     </div>
 

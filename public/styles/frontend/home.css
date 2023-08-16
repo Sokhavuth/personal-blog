@@ -112,4 +112,12 @@
     .Home .front-ad{
         grid-template-columns: 100%;
     }
+
+    .Home main{
+        grid-template-columns: 100%;
+    }
+
+    .Home main .content .post{
+        grid-template-columns: 100%;
+    }
 }

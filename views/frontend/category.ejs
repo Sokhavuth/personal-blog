@@ -1,0 +1,47 @@
+<!--views/frontend/category.ejs-->
+
+<link href="/styles/frontend/category.css" rel="stylesheet">
+<script src="/scripts/paginate.js"></script>
+
+<section class="Category">
+    <div class="front-ad">
+        <img src="/images/donate-ad.jpg" />
+        <img src="/images/donate-ad.jpg" />
+    </div>
+    
+    <main>
+        <div class="content">
+            <% if(data.items){ %>
+                <% for(let v=0; v<data.items.length; v++){ %>
+                <div class="post">
+                    <a class="thumb" href="/post/<%= data.items[v].id %>">
+                        <img src="<%= data.items[v].thumb %>" />
+                        <% if(data.items[v].videos){ %>
+                            <% if((data.items[v].videos !== "") && (data.items[v].videos !== "[]")){ %>
+                                <img class="play-icon" src="/images/play.png"/>
+                            <% } %>
+                        <% } %>
+                    </a>
+
+                    <div class="text">
+                        <a href="/post/<%= data.items[v].id %>" class="title">
+                            <%= data.items[v].title %>
+                        </a>
+                        <div class="date">
+                            <%= (new Date(data.items[v].date)).toLocaleDateString("it-IT") %>
+                        </div>
+                        <div class="except"><%- data.items[v].content %></div>
+                    </div>
+                </div>
+                <% } %>
+            <% } %>
+            <div class="paginate"></div>
+            <div class="pagination">
+                <img onclick="paginate('<%= data.category %>')" src="/images/load-more.png" />
+            </div>
+        </div>
+        <div class="sidebar">
+            <%- include('./sidebar.ejs') %>
+        </div>
+    </main>
+</section>

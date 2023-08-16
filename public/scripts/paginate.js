@@ -2,11 +2,19 @@
 
 let  page = 0
 
-function paginate(){
+function paginate(category){
     $('.pagination img').attr('src', '/images/loading.gif')
     page = page + 1
+    
+    if(category){
+        var body = { page, category }
+        var route = '/category/paginate'
+    }else{
+        var body = { page }
+        var route = '/paginate'
+    }
 
-    $.post(`/paginate`,{ page },function(data, status){
+    $.post(route, body, function(data, status){
         let items = data.items
         if(items.length !== 0 ){
             appendItem(data.items)

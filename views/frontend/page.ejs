@@ -1,0 +1,27 @@
+<!--views/frontend/post.ejs-->
+
+<link href="/styles/frontend/post.css" rel="stylesheet">
+
+<section class="Post">
+    <div class="post-ad">
+        <img src="/images/donate-ad.jpg" />
+        <img src="/images/donate-ad.jpg" />
+    </div>
+
+    <div class="main">
+        <div class="content">
+        <% if(data.item){ %>
+            <div class="title"><%= data.item.title %></div>
+            <div class="date">
+                <%= new Date(data.item.date).toLocaleDateString("it-IT") %>
+            </div>
+            <div class="text-content">
+                <%- data.item.content %>
+            </div>
+        <% } %>
+        </div>
+        <div class="sidebar">
+            <%- include("./sidebar.ejs") %>
+        </div>
+    </div>
+</section>

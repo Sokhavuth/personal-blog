@@ -35,6 +35,14 @@ class Post{
         })
     }
 
+    async getPostsByCategory(req, amount){
+        return await req.prisma.post.findMany({ 
+            where: { categories: { has: req.params.category } },
+            take: amount, 
+            orderBy: [{ date: "desc" }, { id: "desc" }]
+        })
+    }
+
     async getPost(req){
         return await req.prisma.post.findUnique({ where: {id: req.params.id }})
     }
@@ -67,6 +75,17 @@ class Post{
 
     async paginatePosts(req, amount){
         const posts = await req.prisma.post.findMany({ 
+            orderBy: [{ date: "desc" }, { id: "desc" }],
+            skip: amount * parseInt(req.body.page),
+            take: amount
+        })
+
+        return posts
+    }
+
+    async paginatePostsByCategory(req, amount){
+        const posts = await req.prisma.post.findMany({ 
+            where: { categories: { has: req.body.category } },
             orderBy: [{ date: "desc" }, { id: "desc" }],
             skip: amount * parseInt(req.body.page),
             take: amount
