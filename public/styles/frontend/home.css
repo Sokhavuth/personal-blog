@@ -94,9 +94,14 @@
     font: bold 14px/1.5 Courgette, HandWriting;
 }
 
-.Home main .sidebar{
-    background-color: rgb(241, 241, 241);
+.Home main .content .pagination{
     text-align: center;
+    background-color: rgb(241, 241, 241);
+    padding: 5px 0 0;
+}
+
+.Home main .content .pagination img:hover{
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px){

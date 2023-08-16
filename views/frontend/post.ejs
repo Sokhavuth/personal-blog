@@ -1,0 +1,65 @@
+<!--views/frontend/post.ejs-->
+
+<link href="/styles/frontend/post.css" rel="stylesheet">
+<script src="/scripts/setplayer.js"></script>
+
+<section class="Post">
+    <div class="post-ad">
+        <img src="/images/donate-ad.jpg" />
+        <img src="/images/donate-ad.jpg" />
+    </div>
+
+    <div class="main">
+        <div class="content">
+        <% if(data.item){ %>
+            <div class="title"><%= data.item.title %></div>
+            <div class="categories">ជំពូកៈ <%= data.item.categories.join(', ') %></div>
+            <div class="date">
+                <%= new Date(data.item.date).toLocaleDateString("it-IT") %>
+            </div>
+            <% if(data.item.videos){ %>
+            <% if((data.item.videos !== '')&&(data.item.videos !== '[]')){ %>
+                <div class="video">
+                    <div class="screen"></div>
+                    <div class="playlist"></div>
+                </div>
+                <script>
+                    const videos = JSON.parse('<%- data.item.videos %>')
+                    videos.reverse()
+                    
+                    let clicked = 0
+                    
+                    for(let index in videos){
+                        let ending = ''
+                        if(index == videos.length-1){
+                            ending = videos[index].status
+                        }
+
+                        let title = videos[index].title
+                        
+                        let result = '<div id="part'+index+'" class="part" onClick="setScreen(videos['+index+'],'+index+',true)">videoTitle ភាគ '+(++index)+' '+ending+'</div>'
+                        let html = result.replace("videoTitle", "<%= data.item.title %>")
+                        $('.playlist').append(html)
+                    }
+
+                    setScreen(videos[0],0,false)
+                </script>
+            <% } %>
+            <% } %>
+            <div class="text-content">
+                <%- data.item.content %>
+            </div>
+        <% } %>
+            <script>
+                var idcomments_acct = '9c345347e031486fc1c6a2fcbea0e528';
+                var idcomments_post_id;
+                var idcomments_post_url;
+            </script>
+            <span id="IDCommentsPostTitle" style="display:none"></span>
+            <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+        </div>
+        <div class="sidebar">
+            <%- include("./sidebar.ejs") %>
+        </div>
+    </div>
+</section>

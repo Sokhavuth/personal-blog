@@ -60,7 +60,11 @@
     </script>
 
     <div class="main">
-        <%- include("./home.ejs") %>
+        <% if(data.route === '/'){ %>
+            <%- include("./home.ejs") %>
+        <% }else if(data.route.includes('/post')){ %>
+            <%- include("./post.ejs") %>
+        <% } %>
     </div>
 
 </section>

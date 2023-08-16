@@ -13,6 +13,11 @@ class Index{
         
         res.render('base', {data:req.settings})
     }
+
+    async paginatePosts(req, res){
+        req.settings.items = await postDb.paginatePosts(req, req.settings.indexPostLimit)
+        res.json(req.settings)
+    }
 }
 
 export default new Index()

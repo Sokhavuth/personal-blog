@@ -1,6 +1,7 @@
 <!--views/frontend/home.ejs-->
 
 <link href="/styles/frontend/home.css" rel="stylesheet">
+<script src="/scripts/paginate.js"></script>
 
 <section class="Home">
     <div class="feature-post">
@@ -36,7 +37,6 @@
                                 <img class="play-icon" src="/images/play.png"/>
                             <% } %>
                         <% } %>
-                        
                     </a>
 
                     <div class="text">
@@ -51,7 +51,13 @@
                 </div>
                 <% } %>
             <% } %>
+            <div class="paginate"></div>
+            <div class="pagination">
+                <img onclick="paginate()" src="/images/load-more.png" />
+            </div>
         </div>
-        <div class="sidebar">ផ្សាយ​ពាណិជ្ជកម្ម</div>
+        <div class="sidebar">
+            <%- include('./sidebar.ejs') %>
+        </div>
     </main>
 </section>
