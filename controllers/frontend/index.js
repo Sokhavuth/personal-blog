@@ -9,14 +9,19 @@ class Index{
         req.settings.route = '/'
         req.settings.type = ''
 
-        req.settings.items = await postDb.getPosts(req, req.settings.indexPostLimit)
-        
-        res.render('base', {data:req.settings})
-    }
+        req.settings.totalItems = await postDb.count(req) 
+        req.settings.itemsPerPage = req.settings.indexPostLimit
+        req.settings.pageNumber = Math.ceil(req.settings.totalItems/req.settings.itemsPerPage)
+        req.settings.currentPage = 1
 
-    async paginatePosts(req, res){
-        req.settings.items = await postDb.paginatePosts(req, req.settings.indexPostLimit)
-        res.json(req.settings)
+        if(req.query.page){
+            req.settings.currentPage = req.query.page
+            req.settings.items = await postDb.paginatePosts(req, req.settings.indexPostLimit)
+        }else{
+            req.settings.items = await postDb.getPosts(req, req.settings.indexPostLimit)
+        }
+        
+        res.render('base', { data:req.settings })
     }
 }
 

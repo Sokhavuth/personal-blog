@@ -8,19 +8,21 @@ class Category{
         req.settings.route = "/category"
         req.settings.type = req.params.category
         req.settings.category = req.params.category
+        const query = { where: { categories: { has: req.params.category } } }
 
-        req.settings.items = await postDb.getPostsByCategory(req, req.settings.categoryPostLimit)
+        req.settings.totalItems = await postDb.count(req, query) 
+        req.settings.itemsPerPage = req.settings.categoryPostLimit
+        req.settings.pageNumber = Math.ceil(req.settings.totalItems/req.settings.itemsPerPage)
+        req.settings.currentPage = 1
+        if(req.query.page){
+            req.settings.currentPage = req.query.page
+            req.settings.items = await postDb.paginatePostsByCategory(req, req.settings.indexPostLimit)
+        }else{
+            req.settings.items = await postDb.getPostsByCategory(req, req.settings.categoryPostLimit)
+        }
 
         res.render("base", { data: req.settings })
     }
-
-    async paginate(req, res){
-        const amount = req.settings.categoryPostLimit
-        req.settings.items = await postDb.paginatePostsByCategory(req, amount)
-
-        res.json(req.settings)
-    }
 }
-
 
 export default new Category()

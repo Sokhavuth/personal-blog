@@ -1,8 +1,8 @@
 //models/post.js
 
 class Post{
-    async count(req){
-        return await req.prisma.post.count()
+    async count(req, query={}){
+        return await req.prisma.post.count(query)
     }
 
     async createPost(req){
@@ -74,9 +74,15 @@ class Post{
     }
 
     async paginatePosts(req, amount){
+        if(req.body.page){
+            var page = parseInt(req.body.page)
+        }else if(req.query.page){
+            var page = parseInt(req.query.page)-1
+        }
+        
         const posts = await req.prisma.post.findMany({ 
             orderBy: [{ date: "desc" }, { id: "desc" }],
-            skip: amount * parseInt(req.body.page),
+            skip: amount * page,
             take: amount
         })
 
@@ -85,9 +91,9 @@ class Post{
 
     async paginatePostsByCategory(req, amount){
         const posts = await req.prisma.post.findMany({ 
-            where: { categories: { has: req.body.category } },
+            where: { categories: { has: req.params.category } },
             orderBy: [{ date: "desc" }, { id: "desc" }],
-            skip: amount * parseInt(req.body.page),
+            skip: amount * (parseInt(req.query.page)-1),
             take: amount
         })
 

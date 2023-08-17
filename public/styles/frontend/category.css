@@ -87,6 +87,15 @@
     cursor: pointer;
 }
 
+.Category main .content .select-pagination{
+    text-align: center;
+}
+
+.Category main .content .select-pagination select{
+    font: var(--body-font);
+}
+
+
 @media only screen and (max-width: 600px){
     .Category .front-ad{
         grid-template-columns: 100%;

@@ -8,8 +8,4 @@ frontRouter.get('/', async (req, res)=>{
     await index.getPage(req,res)
 })
 
-frontRouter.post('/paginate', async (req, res) =>{
-    await index.paginatePosts(req, res)
-})
-
 export default frontRouter

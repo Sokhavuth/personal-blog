@@ -1,12 +1,18 @@
 <!--views/frontend/home.ejs-->
 
 <link href="/styles/frontend/home.css" rel="stylesheet">
-<script src="/scripts/paginate.js"></script>
 
 <section class="Home">
     <div class="feature-post">
         <% if(data.items){ %>
-            <% for(let v=0; v<4; v++){ %>
+            <% 
+            if(data.items.length < 4){
+                var items = data.items.length
+            }else{
+                var items = 4
+            }
+            %>
+            <% for(let v=0; v<items; v++){ %>
                 <a href="/post/<%= data.items[v].id %>">
                     <img src="<%= data.items[v].thumb %>" />
                     <% if(data.items[v].videos){ %>
@@ -51,10 +57,33 @@
                 </div>
                 <% } %>
             <% } %>
-            <div class="paginate"></div>
-            <div class="pagination">
-                <img onclick="paginate()" src="/images/load-more.png" />
+            
+            <div class="select-pagination">
+                <span>​​​​​​​​​​​​​​​​​​​​​ទំព័រ </span>
+                <select class="page" onchange="onChangeHandler()">
+                    <% if(data.totalItems){ %>
+                        <% for(let v=0; v<data.pageNumber; v++){ %>
+                            <option><%= v+1 %></option>
+                        <% } %>
+                    <% } %>
+                </select>
+                <span> នៃ <%= data.pageNumber %></span>
             </div>
+            <script>
+                function onChangeHandler(){
+                    location.href = "/?page="+$( ".page option:selected" ).text()
+                }
+
+                const changeSelected = (e) => {
+                    const text = '<%= data.currentPage %>'
+                    const $select = document.querySelector('.page')
+                    const $options = Array.from($select.options)
+                    const optionToSelect = $options.find(item => item.text === text)
+                    optionToSelect.selected = true
+                }
+
+                changeSelected()
+            </script>
         </div>
         <div class="sidebar">
             <%- include('./sidebar.ejs') %>
