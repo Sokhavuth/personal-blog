@@ -16,7 +16,7 @@ class Category{
         req.settings.currentPage = 1
         if(req.query.page){
             req.settings.currentPage = req.query.page
-            req.settings.items = await postDb.paginatePostsByCategory(req, req.settings.indexPostLimit)
+            req.settings.items = await postDb.paginatePostsByCategory(req, req.settings.categoryPostLimit)
         }else{
             req.settings.items = await postDb.getPostsByCategory(req, req.settings.categoryPostLimit)
         }
