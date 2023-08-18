@@ -68,13 +68,16 @@
 }
 
 .Category main .content .text .except{
-    padding-top: 10px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     font: bold 14px/1.5 Courgette, HandWriting;
+}
+
+.Category main .content .text .except img{
+    display: none;
 }
 
 .Category main .content .pagination{

@@ -84,6 +84,10 @@
     color: rgb(34, 33, 33)
 }
 
+.Post .main .content .text-content img{
+    width: 100%;
+}
+
 @media only screen and (max-width: 600px){
     .Post .post-ad{
         grid-template-columns: 100%;
