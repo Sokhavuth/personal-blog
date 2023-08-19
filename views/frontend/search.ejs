@@ -1,4 +1,4 @@
-<!--views/frontend/category.ejs-->
+<!--views/frontend/search.ejs-->
 
 <link href="/styles/frontend/category.css" rel="stylesheet">
 
@@ -33,33 +33,6 @@
                 </div>
                 <% } %>
             <% } %>
-            <div class="select-pagination">
-                <span>​​​​​​​​​​​​​​​​​​​​​ទំព័រ </span>
-                <select class="page" onchange="onChangeHandler()">
-                    <% if(data.totalItems){ %>
-                        <% for(let v=0; v<data.pageNumber; v++){ %>
-                            <option><%= v+1 %></option>
-                        <% } %>
-                    <% } %>
-                </select>
-                <span> នៃ <%= data.pageNumber %></span>
-            </div>
-            <script>
-                function onChangeHandler(){
-                    const page = $(".page option:selected").text()
-                    location.href = "/category/<%= data.category %>?page="+page
-                }
-
-                const changeSelected = (e) => {
-                    const text = '<%= data.currentPage %>'
-                    const $select = document.querySelector('.page')
-                    const $options = Array.from($select.options)
-                    const optionToSelect = $options.find(item => item.text === text)
-                    optionToSelect.selected = true
-                }
-
-                changeSelected()
-            </script>
         </div>
         <div class="sidebar">
             <%- include('./sidebar.ejs') %>

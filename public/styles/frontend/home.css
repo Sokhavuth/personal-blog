@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 5px;
-    padding: 5px 0;
+    padding: 5px 0 0;
 }
 
 .Home .feature-post a, .Home main .content .thumb{
@@ -44,16 +44,6 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.Home .front-ad{
-    display: grid;
-    grid-template-columns: auto auto ;
-    grid-gap: 5px;
-}
-
-.Home .front-ad img{
-    width: 100%;
 }
 
 .Home main{
@@ -119,10 +109,6 @@
 
 @media only screen and (max-width: 600px){
     .Home .feature-post{
-        grid-template-columns: 100%;
-    }
-
-    .Home .front-ad{
         grid-template-columns: 100%;
     }
 

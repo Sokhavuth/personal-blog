@@ -1,16 +1,5 @@
 /* public/styles/frontend/category.css */
 
-.Category .front-ad{
-    margin-top: 5px;
-    display: grid;
-    grid-template-columns: auto auto ;
-    grid-gap: 5px;
-}
-
-.Category .front-ad img{
-    width: 100%;
-}
-
 .Category main{
     display: grid;
     grid-template-columns: 70% auto;
@@ -102,10 +91,6 @@
 
 
 @media only screen and (max-width: 600px){
-    .Category .front-ad{
-        grid-template-columns: 100%;
-    }
-
     .Category main{
         grid-template-columns: 100%;
     }

@@ -68,6 +68,10 @@
             <%- include("./category.ejs") %>
         <% }else if(data.route.includes('/page')){ %>
             <%- include("./page.ejs") %>
+        <% }else if(data.route === '/user'){ %>
+            <%- include("./user.ejs") %>
+        <% }else if(data.route === '/search'){ %>
+            <%- include("./search.ejs") %>
         <% } %>
     </div>
 

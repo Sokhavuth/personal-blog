@@ -1,0 +1,25 @@
+<!--views/frontend/front-ad.ejs-->
+
+<style>
+    .Front-ad{
+        padding-top: 5px;
+        display: grid;
+        grid-template-columns: auto auto ;
+        grid-gap: 5px;
+    }
+
+    .Front-ad img{
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 600px){
+        .Front-ad{
+            grid-template-columns: 100%;
+        }
+    }
+</style>
+
+<div class="Front-ad">
+    <img src="/images/donate-ad.jpg" />
+    <img src="/images/donate-ad.jpg" />
+</div>

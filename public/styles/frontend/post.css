@@ -1,16 +1,5 @@
 /* public/styles/frontend/post.css */
 
-.Post .post-ad{
-    display: grid;
-    grid-template-columns: auto auto ;
-    grid-gap: 5px;
-    padding-top: 5px;
-}
-
-.Post .post-ad img{
-    width: 100%;
-}
-
 .Post .main{
     display: grid;
     grid-template-columns: 70% auto;
@@ -89,10 +78,6 @@
 }
 
 @media only screen and (max-width: 600px){
-    .Post .post-ad{
-        grid-template-columns: 100%;
-    }
-
     .Post .main{
         grid-template-columns: 100%;
     }
