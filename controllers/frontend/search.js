@@ -2,7 +2,7 @@
 
 import postDb from "../../models/post.js"
 
-class Index{
+class Search{
     async getPage(req, res){
         req.settings.pageTitle = 'ទំព័រ​ស្វែង​រក'
         req.settings.message = ''
@@ -15,4 +15,4 @@ class Index{
     }
 }
 
-export default new Index()
+export default new Search()
